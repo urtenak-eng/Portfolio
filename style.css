@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inconsolata', monospace;
+  line-height: 1.6;
+  color: #353535;
+}
+.landing {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(images/lanfingsviesiau.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e8e8e8;
+}
+.landing-title {
+  text-align: center;
+  padding-top: 48px;
+}
+ 
+.landing-title h1 {
+  font-size: 24px;
+  font-weight: 1000;
+  letter-spacing: 24px;
+}
+.landing-title a{
+    text-decoration: none;
+    color: inherit; 
+}
+.landing-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin: auto 0;
+  padding: 60px 0;
+}
+.landing-nav a {
+  text-decoration: none;
+  color: #353535;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #353535;
+  padding-bottom: 2px;
+}
+.contact-btn {
+  margin-top: 12px;
+  background-color: #353535;
+  color: #fff !important;
+  padding: 10px 20px !important;
+  border-radius: 0;
+  border-bottom: none !important;
+  letter-spacing: 1px;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.landing-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 32px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #353535;
+}
+@media (max-width: 600px) {
+  .landing-title h1 {
+    font-size: 14px;
+    letter-spacing: 6px;
+  }
+ 
+  .landing-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+.page-header {
+  text-align: center;
+  padding-top: 40px;
+}
+ 
+.page-header h1 {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 12px;
+}
+ 
+/* ===== INTRO / SUBTITLE ===== */
+.page-intro {
+  text-align: center;
+  margin-top: 24px;
+}
+ 
+.page-subtitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+ 
+/* ===== TEXT BLOCK BETWEEN GALLERIES ===== */
+.page-text-block {
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+ 
+/* ============================================
+   GALLERY GRID (3 columns, used twice on Posters page)
+   ============================================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+.about-grid {
+    row-gap: 60px;
+    column-gap: 24px;
+    max-width: 700px;
+}
+ 
+.gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.gallery-grid-natural .gallery-item img {
+  height: auto;
+  object-fit: contain;
+}
+ 
+/* ===== FEATURED 2-UP GRID ===== */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+ 
+/* ===== FULL-WIDTH SINGLE IMAGE (e.g. a standalone screenshot) ===== */
+.full-image {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+.full-image img {
+  width: 100%;
+  display: block;
+}
+ 
+.page {
+  min-height: 100vh;
+  background-image: url('images/fonas prftlsviesiau.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e8e8e8;
+}
+p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.site-footer {
+  display: flex;
+  justify-content: space-between; /* same spreading as the landing page footer */
+  gap: 24px;
+  padding: 20px 32px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #353535;
+}
+.site-footer a,
+.landing-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+/* ===== VIDEO ===== */
+.page video {
+  display: block;
+  width: 50%;
+  margin: 24px auto;
+}
+ 
+ 
+/* ===== VERTICAL STACK: images one under another, centered ===== */
+.vertical-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+ 
+.vertical-stack .gallery-item {
+  width: 100%;
+  max-width: 450px; /* change this number to make the pictures bigger or smaller */
+}
+ 
+.vertical-stack .gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+.about-section img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.about-section .about-text p{
+    font-size: 16px;
+    line-height: 1.7;
+}
+ 
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+  .gallery-grid,
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  .banner-text {
+    font-size: 20px;
+  }
+ 
+  .page-header h1 {
+    font-size: 14px;
+    letter-spacing: 6px;
+  }
+ 
+  .page video {
+    width: 90%;
+  }
+ 
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+}
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+ 
+.modal-overlay.open {
+  display: flex;
+}
+ 
+.modal-box {
+  width: 380px;
+  max-width: 90vw;
+  background: #EDEEF2;
+  border: 1px solid #1120A8;
+  border-radius: 4px;
+  padding: 32px 28px;
+  position: relative;
+  font-family: 'Inconsolata', monospace;
+}
+ 
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #1120A8;
+  font-family: 'Inconsolata', monospace;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+ 
+.modal-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #1120A8;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+ 
+.modal-heading {
+  font-size: 24px;
+  margin: 0 0 28px;
+  color: #1a1a1a;
+}
+ 
+.modal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid rgba(17, 32, 168, 0.25);
+}
+ 
+.modal-row.last {
+  border-bottom: 1px solid rgba(17, 32, 168, 0.25);
+}
+ 
+.modal-row-label {
+  font-size: 11px;
+  color: #6b6b70;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.modal-row-value {
+  font-size: 15px;
+  color: #1a1a1a;
+  margin: 0;
+}
+ 
+.modal-btn,
+.modal-link {
+  border: 1px solid #1120A8;
+  background: transparent;
+  color: #1120A8;
+  font-family: 'Inconsolata', monospace;
+  font-size: 11px;
+  padding: 7px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urtė Naktinytė</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="landing">
+    <header class="landing-title">
+     <a href="index.html"><h1>URTĖ NAKTINYTĖ</h1></a> 
+    </header>
+    <nav class="landing-nav">
+      <a href="posters.html">POSTERS</a>
+      <a href="website.html">WEBSITES</a>
+      <a href="about.html">ABOUT</a>
+      <a href="#contact" class="contact-btn" id="contact-btn" >CONTACT ME</a>
+    </nav>
+    <footer class="landing-footer">
+      <span>EMAIL - unaktinyte@gmail.com</span>
+      <span>INSTAGRAM - @naktinyte</span>
+    </footer>
+  </div>
+<!-- ===== CONTACT MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+ 
+      <p class="modal-label">Contact</p>
+      <p class="modal-heading">Let's talk</p>
+ 
+      <div class="modal-row">
+        <div>
+          <p class="modal-row-label">Email</p>
+          <p class="modal-row-value">unaktinyte@gmail.com</p>
+        </div>
+        <button class="modal-btn" id="copy-email-btn">Copy</button>
+      </div>
+ 
+      <div class="modal-row last">
+        <div>
+          <p class="modal-row-label">Instagram</p>
+          <p class="modal-row-value">@naktinyte</p>
+        </div>
+        <a class="modal-link" href="https://instagram.com/naktinyte" target="_blank" rel="noreferrer">Open</a>
+      </div>
+    </div>
+  </div>
+ 
+  <script>
+    const openBtn = document.getElementById('contact-btn');
+    const overlay = document.getElementById('modal-overlay');
+    const closeBtn = document.getElementById('modal-close');
+    const copyBtn = document.getElementById('copy-email-btn');
+ 
+    openBtn.addEventListener('click', function (e) {
+      e.preventDefault(); // stops it from jumping to "#contact"
+      overlay.classList.add('open');
+    });
+ 
+    closeBtn.addEventListener('click', function () {
+      overlay.classList.remove('open');
+    });
+ 
+    // clicking the dark background also closes it
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+      }
+    });
+ 
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText('unaktinyte@gmail.com');
+      copyBtn.textContent = 'Copied';
+      setTimeout(function () {
+        copyBtn.textContent = 'Copy';
+      }, 1500);
+    });
+ 
+    // ============================================
+    // CURSOR DOT TRAIL
+    // ============================================
+    (function () {
+      const color = "#1120A8";
+      const dotSize = 20;
+      const spawnInterval = 220; // ms between new dots while moving — higher = fewer, more spaced out
+      const lifespan = 1400;     // ms for each dot to fully fade — higher = lingers longer
+      const maxDots = 14;
+ 
+      const container = document.createElement("div");
+      container.style.position = "fixed";
+      container.style.inset = "0";
+      container.style.overflow = "hidden";
+      container.style.pointerEvents = "none";
+      container.style.zIndex = "9999";
+      document.body.appendChild(container);
+ 
+      const pool = Array.from({ length: maxDots }, function () {
+        const el = document.createElement("div");
+        el.style.position = "absolute";
+        el.style.width = dotSize + "px";
+        el.style.height = dotSize + "px";
+        el.style.borderRadius = "50%";
+        el.style.background = color;
+        el.style.pointerEvents = "none";
+        el.style.opacity = "0";
+        el.style.transform = "translate(-50%, -50%)";
+        el.style.willChange = "opacity";
+        container.appendChild(el);
+        return { el: el, spawnTime: 0, active: false };
+      });
+ 
+      let lastSpawn = 0;
+ 
+      function spawnDot(x, y) {
+        let dot = pool.find(function (d) { return !d.active; });
+        if (!dot) {
+          dot = pool.reduce(function (oldest, d) {
+            return d.spawnTime < oldest.spawnTime ? d : oldest;
+          });
+        }
+        dot.active = true;
+        dot.spawnTime = performance.now();
+        dot.el.style.left = x + "px";
+        dot.el.style.top = y + "px";
+        dot.el.style.opacity = "1";
+      }
+ 
+      window.addEventListener("mousemove", function (e) {
+        const now = performance.now();
+        if (now - lastSpawn < spawnInterval) return;
+        lastSpawn = now;
+        spawnDot(e.clientX, e.clientY);
+      });
+ 
+      function animate() {
+        const now = performance.now();
+        pool.forEach(function (dot) {
+          if (!dot.active) return;
+          const age = now - dot.spawnTime;
+          if (age >= lifespan) {
+            dot.active = false;
+            dot.el.style.opacity = "0";
+            return;
+          }
+          const progress = age / lifespan;
+          dot.el.style.opacity = String(1 - progress * progress);
+        });
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+</html>
+ 
+
+  
